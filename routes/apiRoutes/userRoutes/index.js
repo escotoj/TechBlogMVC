@@ -1,2 +1,4 @@
 const router = require('express').Router();
-const { Todo } = require('../../../models');
+const { User } = require('../../../models');
+
+module.exports = router;
