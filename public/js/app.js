@@ -35,22 +35,22 @@ $submitBtn.addEventListener("click", async (event) => {
 });
 
 
-// clicking on the sign up link directs you to the signup page NEED TO CHECK 
-$signupLink.addEventListener('click', async () => {
-    try {
-      const response = await fetch('/api/signup', {
-        method: 'GET',
-      });
+// // clicking on the sign up link directs you to the signup page NEED TO CHECK 
+// $signupLink.addEventListener('click', async () => {
+//     try {
+//       const response = await fetch('/api/signup', {
+//         method: 'GET',
+//       });
 
-    if (response.ok) {
-      document.location.replace('/signup');
-    } else {
-      alert('Failed to log in');
-    }
-  } catch (err) {
-    alert(err);
-  }
-  });
+//     if (response.ok) {
+//       document.location.replace('/signup');
+//     } else {
+//       alert('Failed to log in');
+//     }
+//   } catch (err) {
+//     alert(err);
+//   }
+//   });
 
 
 
