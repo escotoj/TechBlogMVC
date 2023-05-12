@@ -4,6 +4,8 @@ const $submitBtn = document.getElementById("submitBtn");
 
 const $signupLink = document.getElementById('signupLink');
 
+const $newpostSub = document.querySelector('#newpostSub');
+
 // HANDLES THE LANDING PAGE 
 
 // selecting elements by ID to handle events and data. here we handle password and username, NEED TO TEST
@@ -39,9 +41,16 @@ $signupLink.addEventListener('click', async () => {
       const response = await fetch('/api/signup', {
         method: 'GET',
       });
-      const data = await response.json();
-      location.href = '/views/signup.handlebars';
     } catch (err) {
       alert(err);
     }
   });
+
+
+
+      // response.data.render();
+      // location.href = '/views/signup.handlebars';
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // });
