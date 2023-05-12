@@ -17,6 +17,7 @@ logout
 DELETE route
 log in
 
+NEED navbar js
 
 setting up Routes folders and model folders to match
 need to fill out the user routes and blog routes.
