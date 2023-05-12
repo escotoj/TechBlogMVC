@@ -1,6 +1,9 @@
 home - Home
 get route that renders all the notes with username and date
 
+Home when logged out 
+
+
 
 dashboard - PAGE - DONE - js and handlebars
 POST route to add new note
@@ -24,3 +27,7 @@ need to fill out the user routes and blog routes.
 
 still need a views file with handlebars and seed folder 
 also need to understadn the use of public js.
+
+want to make the app.js logic work, link to signup first, than backend logic for connecting buttons to routes to database to have a signup function and log in function
+Post blog function and update blog. 
+image not working

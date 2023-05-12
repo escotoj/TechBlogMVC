@@ -41,9 +41,15 @@ $signupLink.addEventListener('click', async () => {
       const response = await fetch('/api/signup', {
         method: 'GET',
       });
-    } catch (err) {
-      alert(err);
+
+    if (response.ok) {
+      document.location.replace('/signup');
+    } else {
+      alert('Failed to log in');
     }
+  } catch (err) {
+    alert(err);
+  }
   });
 
 

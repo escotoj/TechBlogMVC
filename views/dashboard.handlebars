@@ -1,10 +1,15 @@
 {{!-- MAYBE THIS COULD BE THE DASHBOARD --}}
 
-<h1>Welcome Back</h1>
-<p>Ready to post?</p>
+<h1>DASHBOARD</h1>
+<p>Allows users to post from here </p>
 
-<form>
+
+
+<form class="login_form">
+<p>Ready to post?</p>
+  {{{ subject }}}
   <input id='newpostSub' type="text" name="newpostSub" placeholder="Subject of your blog"/>
+  {{{ body }}}
   <input id='newpostBod' type="text" name="newpostBod" placeholder="Start your blog post..."/>
   <button id="newpostBtn">Submit New Blog Post</button>
 </form>

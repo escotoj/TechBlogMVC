@@ -14,6 +14,13 @@ router.get('/signup', (req, res) => {
   })
 })
 
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard', {
+    sentence: 'here is where we start a blogpost',
+    subject: 'Start your blog'
+  })
+})
+
 
 //homepage route once logged in
 router.get('/users/:userId', async(req, res) => {
@@ -33,7 +40,7 @@ router.get('/users/:userId', async(req, res) => {
           isCool: true,
           isHungry: false,
         };
-        res.render('user_profile', {
+        res.render('user.profile', {
           user,
           settings,
         });
