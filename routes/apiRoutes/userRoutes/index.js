@@ -13,6 +13,20 @@ router.post('/signup', async (req, res) => {
     catch (err) {
         res.status(500).json(err)
     }
+});
+
+router.post('/welcome', async (req, res) => {
+    try {
+        const userData = await User.create(req.body)
+
+    if (!userData) {
+        res.status(500).json('Error with login')
+    }
+    res.status(200).json('Login Succesfull')
+    }
+    catch (err) {
+        res.status(500).json(err)
+    }
 } )
 
 

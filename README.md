@@ -12,9 +12,10 @@ PUT route to update note
 
 log in - PAGE - DONE = WELCOME.handlebars and app.js
 POST route 
-Post for sign up 
+Post for sign up (maybe add id form in User model)
 
 signup - PAGE - DONE - has js and handlebars
+** Crashing at post fetch request
 
 logout
 DELETE route

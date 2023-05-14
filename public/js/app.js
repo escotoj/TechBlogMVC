@@ -20,8 +20,9 @@ $submitBtn.addEventListener("click", async (event) => {
       "You must provide a valid username and password to enter your account"
     );
   }
+  console.log(username, password)
   try {
-    const response = await fetch("/api/users/signup", {
+    const response = await fetch("/api/users/welcome", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ username, password }),
@@ -33,30 +34,3 @@ $submitBtn.addEventListener("click", async (event) => {
     alert(err);
   }
 });
-
-
-// // clicking on the sign up link directs you to the signup page NEED TO CHECK 
-// $signupLink.addEventListener('click', async () => {
-//     try {
-//       const response = await fetch('/api/signup', {
-//         method: 'GET',
-//       });
-
-//     if (response.ok) {
-//       document.location.replace('/signup');
-//     } else {
-//       alert('Failed to log in');
-//     }
-//   } catch (err) {
-//     alert(err);
-//   }
-//   });
-
-
-
-      // response.data.render();
-      // location.href = '/views/signup.handlebars';
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // });

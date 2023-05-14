@@ -1,19 +1,25 @@
 // COULD RENAME DASHBOARD
 const $newpostButton = document.getElementById('newpostBtn')
-const $postInput = document.getElementById('newpostBod')
 
-$button.addEventListener('click', async (event) => {
+const $newpostSub = document.getElementById('newpostSub')
+const $newpostBod = document.getElementById('newpostBod')
+
+$newpostButton.addEventListener('click', async (event) => {
     event.preventDefault();
-  
-    if ($postInput.value.trim() === '') {
-      return alert('You must enter a something');
+    const data = {
+      title: $newpostSub.value,
+      content: $newpostBod.value
     }
+    console.log(data);
+    // if (data.value.trim() === '') {
+    //   return alert('You must enter a something');
+    // }
   
 //   the data from this route should post to either the welcome page AND/OR home page
     try {
-      const response = await fetch('/api/home', {
+      const response = await fetch('/api/dashboard', {
         method: 'POST',
-        body: JSON.stringify({post: $postInput.value}),
+        body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
         }
