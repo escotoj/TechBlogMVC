@@ -4,20 +4,20 @@ const {User} = require('../../models');
 // here we will write the routes for dashboard, login and home.
 router.get('/', (req, res) => {
   res.render('welcome', {
-    sentence: 'this will be welcome page once signed in'
+    sentence: ''
   })
 })
 
 router.get('/signup', (req, res) => {
   res.render('signup', {
-    sentence: 'maybe collect name or initials'
+    sentence: ''
   })
 })
 
 router.get('/dashboard', (req, res) => {
   res.render('dashboard', {
     sentence: 'here is where we start a blogpost',
-    subject: 'Start your blog'
+    subject: ''
   })
 })
 

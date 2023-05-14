@@ -1,10 +1,10 @@
 const $newusername = document.getElementById("newusername");
 const $newpassword = document.getElementById("newpassword");
-const $newsubmitBtn = document.getElementById("newsubmitBtn");
+const $submitBtn = document.getElementById("submitBtn");
 
 
 
-$newsubmitBtn.addEventListener('click', async (event) => {
+$submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const data = {
         username: $newusername.value,

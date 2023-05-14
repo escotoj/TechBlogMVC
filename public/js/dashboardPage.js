@@ -1,10 +1,10 @@
 // COULD RENAME DASHBOARD
-const $newpostButton = document.getElementById('newpostBtn')
+const $submitBtn = document.getElementById('submitBtn')
 
 const $newpostSub = document.getElementById('newpostSub')
 const $newpostBod = document.getElementById('newpostBod')
 
-$newpostButton.addEventListener('click', async (event) => {
+$submitBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const data = {
       title: $newpostSub.value,

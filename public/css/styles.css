@@ -1,16 +1,27 @@
 body {
   font-family: Arial, sans-serif;
-  /* background-image: url("");
-  background-repeat: no-repeat; */
   background-size: cover;
 }
 
 .container {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  border: 1px dotted #e90000;
+  justify-content: center;
+  text-align: center;
 }
 
+h1 {
+  color: rgb(247, 161, 0);
+  background-color: rgb(255, 255, 241);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* NAVBAR */
 .navbar {
   background-color: #1b505d;
   overflow: hidden;
@@ -51,18 +62,15 @@ body {
   color: white;
 }
 
-
-
-
 /* Center login form */
 .login_form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 50vh;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 /* .login_form form {
@@ -83,7 +91,7 @@ body {
 }
 
 /* Style the login and register buttons */
-.login-button {
+#submitBtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,48 +102,11 @@ body {
   border-radius: 5px;
   width: 30%;
   cursor: pointer;
+
 }
 
-.login-button:hover {
+#submitBtn:hover {
   opacity: 0.8;
+  background-color: #1b505d;
+  cursor: pointer;
 }
-
-
-.login-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#forgot_buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-}
-
-#registar_buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-}
-
-
-.nav-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.intro_graphic {
-  display: flex;
-  color: white;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #333;
-  margin: 30px;
-  border-radius: 20px;
-  padding: 10px;
-}
-
-
