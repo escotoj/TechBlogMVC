@@ -15,7 +15,7 @@ $postBtn.addEventListener('click', async (event) => {
     // }
   
     try {
-      const response = await fetch('/api/users/dashboard', {
+      const response = await fetch('/api/blog/dashboard', {
         method: 'POST',
         body: JSON.stringify({newBlog}),
         headers: {

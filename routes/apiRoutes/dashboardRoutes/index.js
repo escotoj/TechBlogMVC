@@ -4,8 +4,9 @@ const { Blog } = require('../../../models');
 
 // ROUTE for new post
 router.post('/dashboard', async (req, res) => {
+    console.log(req.body.newBlog)
     try {
-        const newBlog = await Blog.create(req.body)
+        const newBlog = await Blog.create(req.body.newBlog)
 
     if (!newBlog) {
         res.status(500).json('Please enter subject or body of the blog')
