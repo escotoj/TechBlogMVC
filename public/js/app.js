@@ -26,7 +26,7 @@ $submitBtn.addEventListener("click", async (event) => {
     });
     const data = await response.json();
 
-    location.href = `/users/${data.id}`;
+    location.href = `/dashboard`;
   } catch (err) {
     alert(err);
   }

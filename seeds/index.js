@@ -1,9 +1,9 @@
-const sequelize = require('sequelize');
+const sequelize = require('../config/connection.js');
 
 const { User } = require('../models');
 
 const seedDb = async () => {
-    await sequelize.AsyncQueueError({ force: true });
+    await sequelize.sync({ force: true });
 
     await User.bulkCreate([
         {
