@@ -91,7 +91,7 @@ h1 {
 }
 
 /* Style the login and register buttons */
-#submitBtn {
+button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,7 +105,7 @@ h1 {
 
 }
 
-#submitBtn:hover {
+button:hover {
   opacity: 0.8;
   background-color: #1b505d;
   cursor: pointer;

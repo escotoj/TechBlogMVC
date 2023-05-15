@@ -1,25 +1,23 @@
 // COULD RENAME DASHBOARD
-const $submitBtn = document.getElementById('submitBtn')
-
+const $postBtn = document.getElementById('postBtn')
 const $newpostSub = document.getElementById('newpostSub')
 const $newpostBod = document.getElementById('newpostBod')
 
-$submitBtn.addEventListener('click', async (event) => {
+$postBtn.addEventListener('click', async (event) => {
     event.preventDefault();
-    const data = {
+    const newBlog = {
       title: $newpostSub.value,
       content: $newpostBod.value
     }
-    console.log(data);
+    console.log(newBlog);
     // if (data.value.trim() === '') {
     //   return alert('You must enter a something');
     // }
   
-//   the data from this route should post to either the welcome page AND/OR home page
     try {
-      const response = await fetch('/api/dashboard', {
+      const response = await fetch('/api/users/dashboard', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify({newBlog}),
         headers: {
           'Content-Type': 'application/json',
         }
@@ -32,3 +30,6 @@ $submitBtn.addEventListener('click', async (event) => {
       console.log(err);
     }
   });
+
+
+  

@@ -1,10 +1,10 @@
 const $newusername = document.getElementById("newusername");
 const $newpassword = document.getElementById("newpassword");
-const $submitBtn = document.getElementById("submitBtn");
+const $registerBtn = document.getElementById("registerBtn");
 
 
 
-$submitBtn.addEventListener('click', async (event) => {
+$registerBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const data = {
         username: $newusername.value,
@@ -14,7 +14,7 @@ $submitBtn.addEventListener('click', async (event) => {
 if (data) {
     const response = await fetch('/api/users/signup', {
         method: 'POST',
-        body: JSON.stringify(data.value),
+        body: JSON.stringify({data}),
         headers: {'Content-Type': 'application/json'},
     });
     if (response.ok) {

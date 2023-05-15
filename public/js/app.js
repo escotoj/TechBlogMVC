@@ -1,10 +1,7 @@
 const $username = document.getElementById("username");
 const $password = document.getElementById("password");
 const $submitBtn = document.getElementById("submitBtn");
-
-const $signupLink = document.getElementById('signupLink');
-
-const $newpostSub = document.querySelector('#newpostSub');
+const $logoutUser = document.getElementById("logoutUser")
 
 // HANDLES THE LANDING PAGE 
 
@@ -34,3 +31,17 @@ $submitBtn.addEventListener("click", async (event) => {
     alert(err);
   }
 });
+
+$logoutUser.addEventListener('click', async () => {
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to log out.');
+  }
+})
+
+
