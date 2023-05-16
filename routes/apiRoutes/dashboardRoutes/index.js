@@ -18,5 +18,34 @@ router.post('/dashboard', async (req, res) => {
     }
 });
 
+router.delete('/homepage', async (req, res) => {
+    try {
+      const existingBlog = await Blog.destroy({
+        where: {
+          id: req.params.id
+        }
+      });
+      if (!existingBlog) {
+        res.status(404).json({ message: 'No project found with this id!' });
+        return;
+      }
+      res.status(200).json(existingBlog);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.put('/homepage', async (req, res) => {
+    try {
+      const existingBlog = await Blog.update(req.body.newBlog);
+      if (!existingBlog) {
+        res.status(404).json({ message: 'No project found with this id!' });
+        return;
+      }
+      res.status(200).json(existingBlog);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;
