@@ -25,6 +25,13 @@ h1 {
   background-color: var(--color-brand);
   display: flex;
   flex-direction: column;
+}
+
+h2 {
+  color: var(--color-heading);
+  background-color: var(--color-brand);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -71,7 +78,7 @@ h1 {
   color: var(--color-base);
 }
 
-/* Center login form */
+/* LOGIN/SIGN UP/POST FORM */
 .login_form {
   display: flex;
   flex-direction: column;
@@ -82,24 +89,14 @@ h1 {
   margin-top: 10px;
 }
 
-/* .login_form {
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  max-width: 300px;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-} */
-
 .login_form input {
   margin-bottom: 10px;
   padding: 8px;
   width: 30%;
 }
 
-/* Style the login and register buttons */
+
+/* BUTTONS */
 button {
   display: flex;
   justify-content: center;
@@ -118,4 +115,17 @@ button:hover {
   opacity: 0.8;
   background-color: var(--color-nav);
   cursor: pointer;
+}
+
+
+/* HOMEPAGE CONTAINER */
+.blogpost-container {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  max-width: 300px;
+  background-color: var(--color-brand);
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
 }

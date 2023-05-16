@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User} = require('../../models');
+const {User, Blog} = require('../../models');
 
 // here we will write the routes for dashboard, login and home.
 router.get('/', (req, res) => {
@@ -11,6 +11,15 @@ router.get('/', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup', {
     sentence: ''
+  })
+})
+
+// WHERE ALL BLOGS ARE VIEWED 
+router.get('/homepage', async (req, res) => {
+  const blogData = await Blog.findAll();
+  const blogs = blogData.map(blog => blog.get({plain: true}));
+  res.render('homepage', {
+    blogs
   })
 })
 
