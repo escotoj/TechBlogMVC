@@ -1,13 +1,13 @@
 const express = require('express');
 // connects express to handlebars
 const exphbs = require('express-handlebars');
-const session = require('express-session');
+// const session = require('express-session');
 const routes = require('./routes');
-// const helper = require('./utils');
+const helpers = require('./utils');
 
 //configuaration setting
 const hbs = exphbs.create({
-
+    helpers
 });
 
 const sequelize = require('./config/connection');
