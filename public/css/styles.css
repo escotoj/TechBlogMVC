@@ -118,6 +118,36 @@ button {
 
 }
 
+#editBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-nav);
+  color: rgb(250, 250, 250) ;
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  cursor: pointer;
+}
+
+#deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-nav);
+  color: rgb(255, 255, 255);
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  cursor: pointer;
+  margin-top:2%;
+}
+
+
+
 button:hover {
   opacity: 0.8;
   background-color: var(--color-nav);
