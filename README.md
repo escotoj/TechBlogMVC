@@ -34,12 +34,15 @@ need a update blog function
 added a login route and logout route to the app.js and userroutes
 
 homepage \_
+is where you create post 
 get route that renders all the notes with username and date
 has a login and a link to sign up
 POST route
 Post for sign up (maybe add id form in User model)
 
-dashboard - place where they can create new blog, place to view past blogs and update past blogs
+dashboard - 
+where you view, edit and comment on others post
+place where they can create new blog, place to view past blogs and update past blogs
 POST route to add new note
 get route that renders all notes
 PUT route to update note

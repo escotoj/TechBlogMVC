@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const sequelize = require('../../../config/connection');
+const bcrypt = require('bcrypt');
 const { User } = require('../../../models');
 
 router.post('/signup', async (req, res) => {
@@ -9,19 +11,23 @@ router.post('/signup', async (req, res) => {
     if (!userData) {
         res.status(500).json('Error creating user')
     }
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
     res.status(200).json('user created')
-    }
+    }); } 
     catch (err) {
         res.status(500).json(err)
     }
 });
 
 
-router.post('/welcome', async (req, res) => {
+router.post('/', async (req, res) => {
+  console.log(req.body);
     try {
       const dbUserData = await User.findOne({
         where: {
-          email: req.body.email,
+          username: req.body.username,
         },
       });
   
@@ -31,7 +37,7 @@ router.post('/welcome', async (req, res) => {
           .json({ message: 'Incorrect email or password. Please try again!' });
         return;
       }
-      const validPassword = await dbUserData.checkPassword(req.body.password);
+      const validPassword = dbUserData.checkPassword(req.body.password);
       if (!validPassword) {
         res
           .status(400)

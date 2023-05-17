@@ -19,7 +19,7 @@ $submitBtn.addEventListener("click", async (event) => {
   }
   console.log(username, password)
   try {
-    const response = await fetch("/api/users/welcome", {
+    const response = await fetch("/api/users/", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ username, password }),
