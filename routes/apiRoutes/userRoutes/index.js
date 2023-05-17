@@ -1,70 +1,102 @@
-const router = require('express').Router();
-const sequelize = require('../../../config/connection');
-const bcrypt = require('bcrypt');
-const { User } = require('../../../models');
+const router = require("express").Router();
+const sequelize = require("../../../config/connection");
+const bcrypt = require("bcrypt");
+const { User } = require("../../../models");
+const withAuth = require("../../../utils/auth");
 
-router.post('/signup', async (req, res) => {
-  console.log(req.body)
-    try {
-        const userData = await User.create(req.body.data)
+router.get("/welcome", async(req, res) => {
+  try {
+    const userData = await User.findAll({})
+    res.status(200).json(userData)
+  } catch(err) {
+    res.status(500).json(err)
+    console.log(err)
+  }
+})
 
-    if (!userData) {
-        res.status(500).json('Error creating user')
-    }
+router.post("/signup", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+    // if (!userData) {
+    //   res.status(500).json("Error creating user");
+    // } else
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-    res.status(200).json('user created')
-    }); } 
-    catch (err) {
-        res.status(500).json(err)
-    }
+      res.status(200).json("user created");
+    });
+    console.log(logged_in)
+    res.status(200).json(userData)
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+router.post("/welcome", async (req, res) => {
+  try {
+    // console.log(req.body.username)
+    // const userData = await User.findbyPk(req.params);
+    const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
 
-router.post('/', async (req, res) => {
-  console.log(req.body);
-    try {
-      const dbUserData = await User.findOne({
-        where: {
-          username: req.body.username,
-        },
-      });
-  
-      if (!dbUserData) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password. Please try again!' });
-        return;
-      }
-      const validPassword = dbUserData.checkPassword(req.body.password);
-      if (!validPassword) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password. Please try again!' });
-        return;
-      }
-      req.session.save(() => {
-        req.session.loggedIn = true;
-        res
-          .status(200)
-          .json({ user: dbUserData, message: 'You are now logged in!' });
-      });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
-  });
+    // if (!userData) {
+    //   res
+    //     .status(400)
+    //     .json({ message: "Incorrect email or password. Please try again!" });
+    //   return;
+    // }
+    // const validPassword = userData.checkPassword(req.body.password);
+    // if (!validPassword) {
+    //   res
+    //     .status(400)
+    //     .json({ message: "Incorrect email or password. Please try again!" });
+    //   return;
+    // }
+   
+    req.session.save(() => {
+      req.session.user_name = req.body.username;
+      req.session.loggedIn = true;
+      res.status(200).json(userData)
+      console.log(req.session)
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-  router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+// GET ALL POST MADE BY USERS
+// router.get('/welcome', withAuth, async (req, res) => {
+//   try {
+//  const userData = await User.findByPk(res.session.username)
+
+// //  const users = userData.map(user => user.get({plain: true}));
+
+//  const users = userData.get({plain: true});
+
+//  res.render('dashboard', {
+//   users,
+//    logged_in: true
+//  })
+//   } catch(err) {
+//     res.status(500).json(err)
+
+//   }
+// })
+
 
 
 module.exports = router;

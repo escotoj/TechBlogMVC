@@ -1,7 +1,8 @@
 const $editBtn = document.getElementById('editBtn');
 const $deleteBtn = document.getElementById('deleteBtn');
 
-$editBtn.addEventListener('click', async (event) => {
+$editBtn.addEventListener('click', async () => {
+  console.log('click')
     const newBlog = {
       title: $newpostSub.value,
       content: $newpostBod.value
@@ -15,6 +16,7 @@ $editBtn.addEventListener('click', async (event) => {
           'Content-Type': 'application/json',
         }
       });
+      
       const data = await response.json();
       console.log(data);
     } catch (err) {
@@ -23,6 +25,7 @@ $editBtn.addEventListener('click', async (event) => {
   });
 
   $deleteBtn.addEventListener('click', async (event) => {
+    console.log('click')
     try {
     const id = event.target.getAttribute('data-id')
       const response = await fetch(`/api/blog/dashboard/${id}`, {
@@ -34,3 +37,7 @@ $editBtn.addEventListener('click', async (event) => {
       console.log(err);
     }
   });
+
+  $deleteBtn.addEventListener('click', async (event) => {
+    console.log("click", event)
+  })

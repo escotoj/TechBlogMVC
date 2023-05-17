@@ -19,12 +19,12 @@ $submitBtn.addEventListener("click", async (event) => {
   }
   console.log(username, password)
   try {
-    const response = await fetch("/api/users/", {
+    const response = await fetch("/api/users/welcome", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ username, password }),
     });
-    const data = await response.json();
+    response.json();
 
     location.href = `/dashboard`;
   } catch (err) {

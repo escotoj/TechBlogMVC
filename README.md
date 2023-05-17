@@ -30,6 +30,10 @@ GitHub: escotoj
 
 ## TODO
 need a update blog function
+need delete post function
+display the username of who made the post 
+
+
 
 added a login route and logout route to the app.js and userroutes
 
