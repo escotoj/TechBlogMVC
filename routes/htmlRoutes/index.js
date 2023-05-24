@@ -2,8 +2,8 @@ const router = require('express').Router();
 const {User, Blog} = require('../../models');
 
 // here we will write the routes for dashboard, login and home.
-router.get('/welcome', (req, res) => {
-  res.render('welcome', {
+router.get('/login', (req, res) => {
+  res.render('login', {
     sentence: ''
   })
 })
@@ -24,7 +24,7 @@ router.get('/homepage', async (req, res) => {
 })
 
 // GET ALL POST MADE BY USERS
-// router.get('/welcome', async(req, res) => {
+// router.get('/login', async(req, res) => {
 //   try {
 //  const userData = await User.findByPk(res.session.user_id, {
 //   attributes: {exclude: ["password"]}
@@ -53,14 +53,16 @@ try {
   console.log(req.session)
   const {user_name} = req.session;  
   console.log('USERNAME ', user_name)
-  const userData = await User.findByPk(user_name, {
-    include: [
-      {
-      model: User,
-      attributes: ['user_id']
-      }
-    ]
-  })
+  const userData = await User.findByPk(user_name,
+  //    {
+  //   include: [
+  //     {
+  //     model: User,
+  //     attributes: ['user_id']
+  //     }
+  //   ]
+  // }
+  )
   // BREAK
   console.log(userData)
 
@@ -91,7 +93,7 @@ router.get('/users/:userId', async(req, res) => {
           isCool: true,
           isHungry: false,
         };
-        res.render('user.profile', {
+        res.render('homepage', {
           user,
           settings,
         });

@@ -1,23 +1,28 @@
 const Blog = require('./Blog');
 const User = require('./User');
+// const Comments = require('./Comment');
 
-//  must include the hasmany or belongs to for the dashboard display for blogs, so blogs belongs to user somehow.
 
-// Blog belongsTo User
-// Blog.belongsTo(User, {
-//   foreignKey: "user_id"
-// })
+User.hasMany(Blog, {
+  foreignKey: 'user_id'
+});
 
-// User hasMany Blogs
-// User.hasMany(Blog, {
-//   foreignKey: "user_id"
-// })
+Blog.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
-// Blog hasMany COmmnets
+// User.hasMany(Comments, {
+//   foreignKey: 'user_id'
+// });
 
-// Commner belongsto Blog
+// Comments.belongsTo(User, {
+//   foreignKey: 'user_id'
+// });
+
 
 module.exports = {
   Blog,
   User,
 };
+
+// module.exports = { User, Blog, Comment };

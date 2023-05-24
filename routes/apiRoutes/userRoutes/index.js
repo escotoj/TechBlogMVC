@@ -2,9 +2,9 @@ const router = require("express").Router();
 const sequelize = require("../../../config/connection");
 const bcrypt = require("bcrypt");
 const { User } = require("../../../models");
-const withAuth = require("../../../utils/auth");
+// const withAuth = require("../../../utils/auth");
 
-router.get("/welcome", async(req, res) => {
+router.get("/login", async(req, res) => {
   try {
     const userData = await User.findAll({})
     res.status(200).json(userData)
@@ -32,7 +32,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/welcome", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     // console.log(req.body.username)
     // const userData = await User.findbyPk(req.params);
@@ -79,7 +79,7 @@ router.post("/logout", (req, res) => {
 });
 
 // GET ALL POST MADE BY USERS
-// router.get('/welcome', withAuth, async (req, res) => {
+// router.get('/login', withAuth, async (req, res) => {
 //   try {
 //  const userData = await User.findByPk(res.session.username)
 
