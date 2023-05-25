@@ -5,6 +5,8 @@ const session = require('express-session');
 const routes = require('./routes');
 const helpers = require('./utils');
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 //configuaration setting
 const hbs = exphbs.create({
     helpers
@@ -25,6 +27,9 @@ const sess = {
     },
     resave: false,
     saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
   };
 
 app.use(session(sess));

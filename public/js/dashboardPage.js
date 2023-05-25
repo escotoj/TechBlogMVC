@@ -7,7 +7,7 @@ $postBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const newBlog = {
       title: $newpostSub.value,
-      content: $newpostBod.value
+      content: $newpostBod.value,
     }
     console.log(newBlog);
     // if (data.value.trim() === '') {
@@ -24,7 +24,8 @@ $postBtn.addEventListener('click', async (event) => {
       });
   
       const data = await response.json();
-      console.log(data);
+      document.location.replace('/homepage')
+      alert('New Blog Posted view in the Homepage', data)
   
     } catch (err) {
       console.log(err);

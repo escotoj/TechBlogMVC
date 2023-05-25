@@ -29,9 +29,18 @@ GitHub: escotoj
 
 
 ## TODO
+understadn session
 dashboard only to show upon login in, needs a session.
-need ot be abel to click on a specific blog and be able to comment
-commnets are displayd with username 
+need ot be abel to click on a specific blog and be able to 
+blogs are displayd with username 
+newpost route doesnt include session or display name of user.
+make blog vie on click, with comment option in a newpage.
+
+
+## DONE
+comment.js has been added
+
+
 
 need a update blog function
 need delete post function

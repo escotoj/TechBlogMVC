@@ -1,17 +1,21 @@
-<div class="blogpost-container">
+
 {{#each blogs as |blog|}}
-{{!-- want to display the username and date and time of post --}}
-<h5>From:{{user.username}}</h5> 
+<div class="blogpost-container">
+    <h5>From:{{user.username}}</h5> 
 <div>
     {{blog.title}}
 </div>
 <div>
     {{blog.content}}
+</div>
 <h6> <i> - {{format_date createdAt}}</i></h6>
-<button id="editBtn" data-id="{{blog.id}}">Edit</button>
-<button id="deleteBtn">Delete</button>
+<button id="editBtn" data-id="{{blog.id}}">View</button>
+{{!-- <button id="deleteBtn">Delete</button> --}}
 </div>
+</div>
+{{!-- want to display the username and date and time of post --}}
 {{/each}}
-</div>
+
+
 
 <script src="/js/homePage.js"></script>
