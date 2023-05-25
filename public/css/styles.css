@@ -40,8 +40,8 @@ h2 {
 h6 {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: left;
+  align-items: flex-end;
+  padding-right: 80px;
 }
 
 /* NAVBAR */
@@ -159,10 +159,11 @@ button:hover {
 .blogpost-container {
   display: flex;
   flex-direction: column;
-  width: 35%;
-  max-width: 300px;
+  width: 65%;
+  max-width: 900px;
   background-color: var(--color-brand);
   border-radius: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   padding: 20px;
+  margin-top: 1%;
 }

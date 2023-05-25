@@ -1,14 +1,14 @@
 
 {{#each blogs as |blog|}}
 <div class="blogpost-container">
-    <h5>From:{{user.username}}</h5> 
+    <h5></h5> 
 <div>
-    {{blog.title}}
+   <b>{{blog.title}}</b> 
 </div>
 <div>
     {{blog.content}}
 </div>
-<h6> <i> - {{format_date createdAt}}</i></h6>
+<h6> <i> From:{{user.user_name}} - {{format_date createdAt}}</i></h6>
 <button id="editBtn" data-id="{{blog.id}}">View</button>
 {{!-- <button id="deleteBtn">Delete</button> --}}
 </div>
