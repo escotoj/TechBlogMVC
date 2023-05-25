@@ -46,7 +46,7 @@ router.get('/homepage', async (req, res) => {
 // })
 
 
-
+// dashboard is where they post and view their own blog
 // BREAKING HERE WHEN READING USERDATA as NULL
 router.get('/dashboard', async (req, res) => {
 try {
@@ -66,9 +66,9 @@ try {
   // BREAK
   console.log(userData)
 
- const users = userData.get({ plain: true });
+//  const users = userData.get({ plain: true });
   res.render('dashboard', {
-    users,
+    // users,
   });
 } catch (err) {
   res.status(500).json(err);
@@ -103,3 +103,31 @@ router.get('/users/:userId', async(req, res) => {
 });
 
 module.exports = router;
+
+
+// router.get('/dashboard', async (req, res) => {
+//   try {
+//     console.log(req.session)
+//     const {user_name} = req.session;  
+//     console.log('USERNAME ', user_name)
+//     const userData = await User.findByPk(user_name,
+//        {
+//       include: [
+//         {
+//         model: User,
+//         attributes: ['user_id']
+//         }
+//       ]
+//     }
+//     )
+ 
+//     console.log(userData)
+  
+//    const users = userData.get({ plain: true });
+//     res.render('dashboard', {
+//       users,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   })

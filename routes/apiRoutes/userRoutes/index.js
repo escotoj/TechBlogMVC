@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const { User } = require("../../../models");
 // const withAuth = require("../../../utils/auth");
 
-router.get("/login", async(req, res) => {
+router.get("/login", async (req, res) => {
   try {
     const userData = await User.findAll({})
     res.status(200).json(userData)
@@ -16,10 +16,11 @@ router.get("/login", async(req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
+    console.log(res.body)
     const userData = await User.create(req.body);
-    // if (!userData) {
-    //   res.status(500).json("Error creating user");
-    // } else
+    if (!userData) {
+      res.status(500).json("Error creating user");
+    } else
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;

@@ -25,8 +25,8 @@ $submitBtn.addEventListener("click", async (event) => {
       body: JSON.stringify({ username, password }),
     });
     response.json();
-
-    location.href = '/dashboard';
+    document.location.replace('/dashboard')
+    // location.href = '/dashboard';
   } catch (err) {
     alert(err);
   }

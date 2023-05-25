@@ -4,7 +4,8 @@ const { Blog } = require('../../../models');
 
 // ROUTE for new post
 router.post('/dashboard', async (req, res) => {
-    console.log(req.body.newBlog)
+  console.log("NEWBLOG", req.session)
+    console.log("NEWBLOG", req.body.newBlog)
     try {
         const newBlog = await Blog.create(req.body.newBlog)
 

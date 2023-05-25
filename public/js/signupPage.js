@@ -13,11 +13,11 @@ registerBtn.addEventListener("click", async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      console.log(response);
+      console.log('GOOD', response);
       // document.location.replace('/');
     } else {
       alert("Signup failed");
-      console.log(response)
+      console.log('BAD',response)
     }
   }
 });
