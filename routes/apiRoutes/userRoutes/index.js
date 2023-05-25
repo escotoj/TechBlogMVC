@@ -14,29 +14,46 @@ router.get("/login", async (req, res) => {
   }
 })
 
-router.post("/signup", async (req, res) => {
+// router.post("/signup", async (req, res) => {
+//   try {
+//     console.log(res.body)
+//     const userData = await User.create(req.body);
+//     if (!userData) {
+//       res.status(500).json("Error creating user");
+//     } else
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
+//       res.status(200).json("user created");
+//     });
+//     console.log(logged_in)
+//     res.status(200).json(userData)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.post('/signup', async (req, res) => {
   try {
-    console.log(res.body)
-    const userData = await User.create(req.body);
-    if (!userData) {
-      res.status(500).json("Error creating user");
-    } else
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      res.status(200).json("user created");
-    });
-    console.log(logged_in)
-    res.status(200).json(userData)
+      const userData = await User.create(req.body);
+
+      req.session.save(() => {
+        // req.session.user_id = userData.id;
+          req.session.user = userData;
+          req.session.loggedIn = true;
+          res.json({ message: 'You are signed up!' });
+          // console.log(userData.id)
+          console.log(userData)
+      });
   } catch (err) {
-    res.status(500).json(err);
+      res.status(500).json({ err });
   }
 });
 
+
+
 router.post("/login", async (req, res) => {
   try {
-    // console.log(req.body.username)
-    // const userData = await User.findbyPk(req.params);
     const userData = await User.findOne({
       where: {
         username: req.body.username,

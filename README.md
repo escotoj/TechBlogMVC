@@ -29,29 +29,13 @@ GitHub: escotoj
 
 
 ## TODO
+dashboard only to show upon login in, needs a session.
+need ot be abel to click on a specific blog and be able to comment
+commnets are displayd with username 
+
 need a update blog function
 need delete post function
 display the username of who made the post 
-
-
-
-added a login route and logout route to the app.js and userroutes
-
-homepage \_
-is where you create post 
-get route that renders all the notes with username and date
-has a login and a link to sign up
-POST route
-Post for sign up (maybe add id form in User model)
-
-dashboard - 
-where you view, edit and comment on others post
-place where they can create new blog, place to view past blogs and update past blogs
-POST route to add new note
-get route that renders all notes
-PUT route to update note
-
-Login - welcome page
 
 blogPost
 WORKING for POST - need to add a delete, and PUT route for updating
@@ -61,7 +45,9 @@ WORKING
 need to add parameters for when only logged in members can blog
 
 signup -
-WORKING
+NOT WORKING, doing a double POST route.
 
 logout
 WORKING
+
+need to start the comments route 

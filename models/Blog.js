@@ -20,6 +20,13 @@ Blog.init(
     content: {
     type: DataTypes.STRING,
     allowNull: false
+    },
+    creator_id: {
+      type: DataTypes.INTEGER,
+      references: {
+          model: 'user',
+          key: 'id',
+      },
     }
   },
   {
