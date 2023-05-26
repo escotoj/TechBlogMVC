@@ -26,10 +26,16 @@ router.get('/homepage', async (req, res) => {
         },
     ]
 });
+  
+  const username = req.session.user_name;
+  console.log("HOME", username)
   const blogs = blogData.map(blog => blog.get({plain: true}));
+  console.log("HOME", blogs)
   res.render('homepage', {
     blogs,
-    loggedIn: req.session.loggedIn
+    username,
+    loggedIn: req.session.loggedIn,
+    pathPrefix: '.',
   })
 })
 

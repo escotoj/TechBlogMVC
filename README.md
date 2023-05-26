@@ -29,12 +29,16 @@ GitHub: escotoj
 
 
 ## TODO
-understadn session
+understadn session - added store 
 dashboard only to show upon login in, needs a session.
 need ot be abel to click on a specific blog and be able to 
+
 blogs are displayd with username 
+
 newpost route doesnt include session or display name of user.
 make blog vie on click, with comment option in a newpage.
+
+only one button works on the dashboard page that selects the data id of the blog. 
 
 
 ## DONE

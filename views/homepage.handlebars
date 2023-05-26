@@ -3,17 +3,18 @@
 <div class="blogpost-container">
     <h5></h5> 
 <div>
-   <b>{{blog.title}}</b> 
+   <b>{{blog.title}}</b>
 </div>
 <div>
     {{blog.content}}
 </div>
-<h6> <i> From:{{user.user_name}} - {{format_date createdAt}}</i></h6>
+<h5>
+<strong>{{user.username}}</strong>
+<i> - {{format_date createdAt}}</i>
+</h5>
 <button id="editBtn" data-id="{{blog.id}}">View</button>
-{{!-- <button id="deleteBtn">Delete</button> --}}
 </div>
 </div>
-{{!-- want to display the username and date and time of post --}}
 {{/each}}
 
 
