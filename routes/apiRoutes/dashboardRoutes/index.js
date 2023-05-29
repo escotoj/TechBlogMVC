@@ -7,7 +7,12 @@ router.post('/dashboard', async (req, res) => {
   console.log("NEWBLOG", req.session)
     console.log("NEWBLOG", req.body.newBlog)
     try {
-        const newBlog = await Blog.create(req.body.newBlog)
+        // const newBlog = await Blog.create(req.body.newBlog)
+        const newBlog = await Blog.create({
+          title: req.body.newBlog.title,
+          content: req.body.newBlog.content,
+          creator_id: req.session.userId
+        })
 
     if (!newBlog) {
         res.status(500).json('Please enter subject or body of the blog')

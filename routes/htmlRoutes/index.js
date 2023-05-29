@@ -39,6 +39,28 @@ router.get('/homepage', async (req, res) => {
   })
 })
 
+router.get('/blog/:id', async (req, res) => {
+  const blogData = await Blog.findByPk(req.params.id,{
+    include: [
+        {
+            model: User,
+            attributes: ['id', 'username'],
+        },
+    ]
+});
+  
+  const username = req.session.user_name;
+  console.log("HOME", username)
+  const blog = blogData.get({plain: true});
+  console.log("HOME", blog)
+  res.render('single-blog', {
+    blog,
+    username,
+    loggedIn: req.session.loggedIn,
+    pathPrefix: '.',
+  })
+})
+
 // GET ALL POST MADE BY USERS
 // router.get('/login', async(req, res) => {
 //   try {
@@ -64,27 +86,29 @@ router.get('/homepage', async (req, res) => {
 
 // dashboard is where they post and view their own blog
 // BREAKING HERE WHEN READING USERDATA as NULL
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
 try {
   console.log(req.session)
   const {user_name} = req.session;  
   console.log('USERNAME ', user_name)
-  const userData = await User.findByPk(user_name,
-  //    {
-  //   include: [
-  //     {
-  //     model: User,
-  //     attributes: ['user_id']
-  //     }
-  //   ]
-  // }
+  const userData = await User.findByPk(req.session.userId,
+     {
+    include: [
+      {
+      model: Blog,
+      }
+    ]
+  }
   )
   // BREAK
-  console.log(userData)
+  const user = userData.get({ plain: true });
+  const blogs = user.blogs;
+  console.log(blogs);
 
 //  const users = userData.get({ plain: true });
   res.render('dashboard', {
-    // users,
+    user,
+    blogs
   });
 } catch (err) {
   res.status(500).json(err);

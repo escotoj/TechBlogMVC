@@ -1,5 +1,3 @@
-
-{{#each blogs as |blog|}}
 <div class="blogpost-container">
     <h5></h5> 
 <div>
@@ -12,12 +10,11 @@
 <strong>{{user.username}}</strong>
 <i> - {{format_date createdAt}}</i>
 </h5>
-{{!-- <button id="editBtn" data-id="{{blog.id}}">View</button> --}}
-<a href="/blog/{{blog.id}}">View</a>
+<button id="editBtn" data-id="{{blog.id}}">View</button>
+
+{{#if loggedIn}}
+<label for="comment">Comment:</label>
+<input name="comment">
+{{/if}}
 </div>
 </div>
-{{/each}}
-
-
-
-<script src="/js/homePage.js"></script>
