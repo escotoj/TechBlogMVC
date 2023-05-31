@@ -157,6 +157,21 @@ button:hover {
 .viewBlog {
   display: flex;
   justify-content: center;
+  width: 25%;
+  color: var(--color-hovernav); 
+  background-color: var(--color-heading);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  padding: 10px;
+  margin: 2%;
+  text-decoration: double;
+  border-style: groove;
+  border-radius: 5px;
+
+}
+
+.newBlog {
+  display: flex;
+  justify-content: center;
   width: 10%;
   color: var(--color-heading);
   background-color: var(--color-brand);

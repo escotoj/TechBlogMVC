@@ -1,4 +1,5 @@
 
+<div><a class="viewBlog" href="/dashboard">Create New Blog</a></div>
 {{#each blogs as |blog|}}
 <div class="blogpost-container">
     <h5></h5> 
@@ -13,10 +14,12 @@
 <i> - {{format_date createdAt}}</i>
 </h5>
 {{!-- <button id="editBtn" data-id="{{blog.id}}">View</button> --}}
-<a class='viewBlog' href="/dashboard/{{blog.id}}">View</a>
+<a class='newBlog' href="/dashboard/{{blog.id}}">View</a>
 </div>
 </div>
 {{/each}}
+
+
 
 
 
