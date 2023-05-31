@@ -19,6 +19,10 @@ body {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   color: var(--color-heading);
   background-color: var(--color-brand);
