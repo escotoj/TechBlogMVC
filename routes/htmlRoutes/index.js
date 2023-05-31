@@ -39,7 +39,7 @@ router.get('/homepage', async (req, res) => {
   })
 })
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/dashboard/:id', async (req, res) => {
   const blogData = await Blog.findByPk(req.params.id,{
     include: [
         {
@@ -53,11 +53,10 @@ router.get('/blog/:id', async (req, res) => {
   console.log("HOME", username)
   const blog = blogData.get({plain: true});
   console.log("HOME", blog)
-  res.render('single-blog', {
+  res.render('dashboard-blog', {
     blog,
     username,
     loggedIn: req.session.loggedIn,
-    pathPrefix: '.',
   })
 })
 
