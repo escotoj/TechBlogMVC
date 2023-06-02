@@ -18,12 +18,16 @@
 <strong>{{user.username}}</strong>
 <i> - {{format_date createdAt}}</i>
 </h5>
-<button id="editBtn" data-id="{{blog.id}}">View</button>
+<button id="editBtn" data-id="{{blog.id}}">Edit</button>
+<button id="deleteBtn" data-id="{{blog.id}}">Destroy</button>
 
 
 {{#if loggedIn}}
 <label for="comment">Comment:</label>
+<input type="form" value="">
 
 {{/if}}
 </div>
 </div>
+
+<script src="/js/homePage.js"></script>
