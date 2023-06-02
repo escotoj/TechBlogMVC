@@ -14,24 +14,6 @@ router.get("/login", async (req, res) => {
   }
 })
 
-// router.post("/signup", async (req, res) => {
-//   try {
-//     console.log(res.body)
-//     const userData = await User.create(req.body);
-//     if (!userData) {
-//       res.status(500).json("Error creating user");
-//     } else
-//     req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
-//       res.status(200).json("user created");
-//     });
-//     console.log(logged_in)
-//     res.status(200).json(userData)
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.post('/signup', async (req, res) => {
   try {
@@ -97,24 +79,6 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// GET ALL POST MADE BY USERS
-// router.get('/login', withAuth, async (req, res) => {
-//   try {
-//  const userData = await User.findByPk(res.session.username)
-
-// //  const users = userData.map(user => user.get({plain: true}));
-
-//  const users = userData.get({plain: true});
-
-//  res.render('dashboard', {
-//   users,
-//    logged_in: true
-//  })
-//   } catch(err) {
-//     res.status(500).json(err)
-
-//   }
-// })
 
 
 
