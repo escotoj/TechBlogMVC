@@ -7,7 +7,8 @@ $editBtn.addEventListener('click', async (event) => {
   // document.location.replace('/dashboard');
   // document.location.replace(`/dashboard/${id}`);
     try {
-      const response = await fetch(`/dashboard/${id}`, {
+      const id = event.target.getAttribute('data-id')
+      const response = await fetch(`/api/blog/dashboard/${id}`, {
         method: 'PUT',
         body: JSON.stringify({newBlog}),
         headers: {
@@ -16,6 +17,14 @@ $editBtn.addEventListener('click', async (event) => {
       });
       
       const data = await response.json();
+
+// CONTAINER FOR edit 
+      var inputElement = document.createElement("input");
+      inputElement.setAttribute("type", "text");
+      inputElement.setAttribute("id", "myInput");
+      var container = document.getElementById("container");
+      container.appendChild(inputElement);
+
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -24,19 +33,16 @@ $editBtn.addEventListener('click', async (event) => {
 
 
   $deleteBtn.addEventListener('click', async (event) => {
-    console.log('click')
     try {
     const id = event.target.getAttribute('data-id')
-      const response = await fetch(`/api/blog/dashboard/${id}`, {
+    console.log(id);
+      await fetch(`/api/blog/dashboard/${id}`, {
         method: 'DELETE',
       });
-      const data = await response.json();
-      console.log(data);
+      console.log('delete good')
+      location.href = '/homepage';
     } catch (err) {
-      console.log(err);
+      console.log('BAD')
+      res.status(500).json(err)
     }
   });
-
-  $deleteBtn.addEventListener('click', async (event) => {
-    console.log("click", event)
-  })

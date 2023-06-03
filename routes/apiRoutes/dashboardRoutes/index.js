@@ -23,39 +23,8 @@ router.post('/dashboard', async (req, res) => {
     }
 });
 
-// router.delete('/homepage', async (req, res) => {
-//     try {
-//       const existingBlog = await Blog.destroy({
-//         where: {
-//           id: req.params.id
-//         }
-//       });
-//       if (!existingBlog) {
-//         res.status(404).json({ message: 'No project found with this id!' });
-//         return;
-//       }
-//       res.status(200).json(existingBlog);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
-
-//   router.put('/homepage', async (req, res) => {
-//     try {
-//       const existingBlog = await Blog.update(req.body.newBlog);
-//       if (!existingBlog) {
-//         res.status(404).json({ message: 'No project found with this id!' });
-//         return;
-//       }
-//       res.status(200).json(existingBlog);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
-
-
-  // UPDATE /api/dashboard/:id (update a post)
-router.put('dashboard/:id', async (req, res) => {
+  // UPDATE /api/dashboard/:id
+router.put('/dashboard/:id', async (req, res) => {
   try {
       await Blog.update({
           title: req.body.title,
@@ -72,8 +41,8 @@ router.put('dashboard/:id', async (req, res) => {
   }
 });
 
-// DELETE /api/dashboard/:id (delete a post)
-router.delete('dashboard/:id', async (req, res) => {
+// DELETE /api/blog/dashboard/:id
+router.delete('/dashboard/:id', async (req, res) => {
   try {
       await Blog.destroy({ where: { id: req.params.id } });
       res.json({ message: 'blog deleted!' });
