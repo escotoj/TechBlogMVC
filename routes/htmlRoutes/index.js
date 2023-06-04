@@ -53,38 +53,14 @@ router.get('/dashboard/:id', async (req, res) => {
   console.log("HOME", username)
   const blog = blogData.get({plain: true});
   console.log("HOME", blog)
-  res.render('dashboard-blog', {
+  res.render('blog', {
     blog,
     username,
     loggedIn: req.session.loggedIn,
   })
 })
 
-// GET ALL POST MADE BY USERS
-// router.get('/login', async(req, res) => {
-//   try {
-//  const userData = await User.findByPk(res.session.user_id, {
-//   attributes: {exclude: ["password"]}
-//   // include: [{model: Blog}]
-//  })
-//  console.log(res.session.user_id)
 
-//  const user = userData.get({plain: true})
-
-//  res.render('dashboard', {
-//    ...user,
-//    logged_in: true
-//  })
-
-//   } catch(err) {
-//     res.status(500).json(err)
-
-//   }
-// })
-
-
-// dashboard is where they post and view their own blog
-// BREAKING HERE WHEN READING USERDATA as NULL
 router.get('/dashboard', withAuth, async (req, res) => {
 try {
   console.log(req.session)
@@ -99,12 +75,9 @@ try {
     ]
   }
   )
-  // BREAK
   const user = userData.get({ plain: true });
   const blogs = user.blogs;
   console.log(blogs);
-
-//  const users = userData.get({ plain: true });
   res.render('dashboard', {
     user,
     blogs

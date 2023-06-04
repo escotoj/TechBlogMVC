@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
         }
         const commentData = await Comment.create(comment);
         res.json(commentData);
+        console.log('LN:13 COMMENT ROUTE', comment)
     } catch (err) {
         res.status(500).json({ err })
         console.log('server side err')

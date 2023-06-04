@@ -57,12 +57,19 @@ $editBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const id = location.pathname.slice(11);
     const comment = commentInput.value;
-    const user = await fetch('/dashboard');
+    // TRYING TO GET USERDATA 
+    const user = await fetch(`/dashboard/${id}`);
+
+    // USED THIS TO HARD CODE AN ID
+    // const userData = event.pointerId
+
     const userData = user.loggedin
     console.log(comment)
-    console.log(id)
-    console.log(userData)
-    console.log('USER', user)
+    console.log('Blog ID ', id)
+    console.log('USERDATA LN:65 --- ', userData)
+
+    console.log('event TEST --- ', event) 
+    console.log('API ', user)
     if (!comment) {
       return alert(
         "No Comment Entered :("
@@ -73,9 +80,10 @@ $editBtn.addEventListener('click', async (event) => {
       const response = await fetch("/api/comment", {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ comment }),
+        body: JSON.stringify({ comment, id }),
       });
       const commentData = await response.json();
+      console.log('COMMENT DATA LN:80', commentData)
 
       //         // Add new comment to the page
       //   // Create paragraph with comment text
@@ -83,7 +91,7 @@ $editBtn.addEventListener('click', async (event) => {
       //   text.textContent = commentData.text;
       //   text.setAttribute('class', 'comment-text');
 
-      //   // Create paragraph with author and timestamp
+      //   // Create paragraph 
       //   const authorPara = document.createElement('p');
       //   const date = new Date(Date.parse(commentData.createdAt));
       //   const timestamp = date
