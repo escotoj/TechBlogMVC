@@ -23,7 +23,7 @@ router.post('/dashboard', async (req, res) => {
     }
 });
 
-  // UPDATE /api/dashboard/:id
+  // UPDATE 
 router.put('/dashboard/:id', async (req, res) => {
   try {
       await Blog.update({
@@ -41,7 +41,7 @@ router.put('/dashboard/:id', async (req, res) => {
   }
 });
 
-// DELETE /api/blog/dashboard/:id
+// DELETE route
 router.delete('/dashboard/:id', async (req, res) => {
   try {
       await Blog.destroy({ where: { id: req.params.id } });

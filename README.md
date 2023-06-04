@@ -13,9 +13,7 @@ You have the ability to register for an account, and be able to login/out of pro
 ## License
 License: MIT License
 
-## Future
-Add freddies pool service, and the book you did as two examples of service, and church as well.
-maybe add a second page, or add a section specific for art?
+
 
 ## Credits
 Jose Escoto, Full Stack Development Student, University of Berkeley.
@@ -29,7 +27,17 @@ GitHub: escotoj
 
 
 ## TODO
-understadn session - added store 
+update blog route not working
+need to render a module that has title and body to update. 
+for the comments - need to make it so that they display.
+delete button only to display for blogger 
+comments to display in the single blog page. 
+
+
+## DONE
+delete route is working
+comment.js has been added
+
 dashboard only to show upon login in, needs a session.
 need ot be abel to click on a specific blog and be able to 
 
@@ -39,11 +47,6 @@ newpost route doesnt include session or display name of user.
 make blog vie on click, with comment option in a newpage.
 
 only one button works on the dashboard page that selects the data id of the blog. 
-
-
-## DONE
-comment.js has been added
-
 
 
 need a update blog function

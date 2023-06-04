@@ -38,13 +38,13 @@ Blog.hasMany(Comment, {
 //   foreignKey: 'blog_id',
 // });
 
-// User.hasMany(Comment, {
-//   foreignKey: 'blogger_id',
-// });
+User.hasMany(Comment, {
+  foreignKey: 'blogger_id',
+});
 
-// Comment.belongsTo(User, {
-//   foreignKey: 'blogger_id'
-// });
+Comment.belongsTo(User, {
+  foreignKey: 'blogger_id'
+});
 
 
 

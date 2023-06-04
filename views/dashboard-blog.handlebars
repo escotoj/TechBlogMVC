@@ -23,8 +23,11 @@
 
 
 {{#if loggedIn}}
-<label for="comment">Comment:</label>
-<input type="form" value="">
+<form class="login_form">
+  <label for="comment">Comment:</label>
+  <input id='commentInput' type="text" name="newpostSub" placeholder="Say whats on your mind..."/>
+  <button id='commentBtn'>Submit</button>
+</form>
 
 {{/if}}
 </div>
