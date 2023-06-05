@@ -1,92 +1,87 @@
-const router = require('express').Router();
-const {User, Blog} = require('../../models');
-const utils = require('../../utils');
-const withAuth = require('../../utils/auth')
+const router = require("express").Router();
+const { User, Blog } = require("../../models");
+const utils = require("../../utils");
+const withAuth = require("../../utils/auth");
 
-// here we will write the routes for dashboard, login and home.
-router.get('/login', (req, res) => {
-  res.render('login', {
-    sentence: ''
-  })
-})
+// routes for dashboard, login, signup and home.
+router.get("/login", (req, res) => {
+  res.render("login", {
+    sentence: "",
+  });
+});
 
-router.get('/signup', (req, res) => {
-  res.render('signup', {
-    sentence: ''
-  })
-})
+router.get("/signup", (req, res) => {
+  res.render("signup", {
+    sentence: "",
+  });
+});
 
-// WHERE ALL BLOGS ARE VIEWED 
-router.get('/homepage', async (req, res) => {
+// WHERE ALL BLOGS ARE VIEWED
+router.get("/homepage", async (req, res) => {
   const blogData = await Blog.findAll({
     include: [
-        {
-            model: User,
-            attributes: ['id', 'username'],
-        },
-    ]
-});
-  
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+    ],
+  });
   const username = req.session.user_name;
-  console.log("HOME", username)
-  const blogs = blogData.map(blog => blog.get({plain: true}));
-  console.log("HOME", blogs)
-  res.render('homepage', {
+  console.log("HOME", username);
+  const blogs = blogData.map((blog) => blog.get({ plain: true }));
+  console.log("HOME", blogs);
+  res.render("homepage", {
     blogs,
     username,
     loggedIn: req.session.loggedIn,
-    pathPrefix: '.',
-  })
-})
-
-router.get('/dashboard/:id', async (req, res) => {
-  const blogData = await Blog.findByPk(req.params.id,{
-    include: [
-        {
-            model: User,
-            attributes: ['id', 'username'],
-        },
-    ]
+    pathPrefix: ".",
+  });
 });
-  
+
+// individial blog page 
+router.get("/dashboard/:id", async (req, res) => {
+  const blogData = await Blog.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+    ],
+  });
   const username = req.session.user_name;
-  console.log("HOME", username)
-  const blog = blogData.get({plain: true});
-  console.log("HOME", blog)
-  res.render('blog', {
+  console.log("HOME", username);
+  const blog = blogData.get({ plain: true });
+  console.log("HOME", blog);
+  res.render("blog", {
     blog,
     username,
     loggedIn: req.session.loggedIn,
-  })
-})
-
-
-router.get('/dashboard', withAuth, async (req, res) => {
-try {
-  console.log(req.session)
-  const {user_name} = req.session;  
-  console.log('USERNAME ', user_name)
-  const userData = await User.findByPk(req.session.userId,
-     {
-    include: [
-      {
-      model: Blog,
-      }
-    ]
-  }
-  )
-  const user = userData.get({ plain: true });
-  const blogs = user.blogs;
-  console.log(blogs);
-  res.render('dashboard', {
-    user,
-    blogs
   });
-} catch (err) {
-  res.status(500).json(err);
-}
-})
+});
 
-
+// using withAuth to display dashboard only if loggedin.
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    console.log(req.session);
+    const { user_name } = req.session;
+    console.log("USERNAME ", user_name);
+    const userData = await User.findByPk(req.session.userId, {
+      include: [
+        {
+          model: Blog,
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
+    const blogs = user.blogs;
+    console.log(blogs);
+    res.render("dashboard", {
+      user,
+      blogs,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

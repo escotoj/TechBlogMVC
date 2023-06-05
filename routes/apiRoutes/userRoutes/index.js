@@ -1,39 +1,36 @@
 const router = require("express").Router();
-const sequelize = require("../../../config/connection");
-const bcrypt = require("bcrypt");
 const { User } = require("../../../models");
-// const withAuth = require("../../../utils/auth");
 
+// LOGIN route to get userdata
 router.get("/login", async (req, res) => {
   try {
-    const userData = await User.findAll({})
-    res.status(200).json(userData)
-  } catch(err) {
-    res.status(500).json(err)
-    console.log(err)
-  }
-})
-
-
-router.post('/signup', async (req, res) => {
-  try {
-      const userData = await User.create(req.body);
-
-      req.session.save(() => {
-        // req.session.user_id = userData.id;
-          req.session.user = userData;
-          req.session.loggedIn = true;
-          res.json({ message: 'You are signed up!' });
-          // console.log(userData.id)
-          console.log(userData)
-      });
+    const userData = await User.findAll({});
+    res.status(200).json(userData);
   } catch (err) {
-      res.status(500).json({ err });
+    res.status(500).json(err);
+    console.log(err);
   }
 });
 
+// CREATE NEW USER
+router.post("/signup", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
 
+    req.session.save(() => {
+      // req.session.user_id = userData.id;
+      req.session.user = userData;
+      req.session.loggedIn = true;
+      res.json({ message: "You are signed up!" });
+      // console.log(userData.id)
+      console.log(userData);
+    });
+  } catch (err) {
+    res.status(500).json({ err });
+  }
+});
 
+// LOGIN EXISTING USER
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -41,7 +38,7 @@ router.post("/login", async (req, res) => {
         username: req.body.username,
       },
     });
-
+    // CODE BELOW IS CRASHING THE ROUTE
     // if (!userData) {
     //   res
     //     .status(400)
@@ -55,13 +52,13 @@ router.post("/login", async (req, res) => {
     //     .json({ message: "Incorrect email or password. Please try again!" });
     //   return;
     // }
-   
+
     req.session.save(() => {
       req.session.user_name = req.body.username;
-      req.session.userId = userData.id
+      req.session.userId = userData.id;
       req.session.loggedIn = true;
-      res.status(200).json(userData)
-      console.log(req.session)
+      res.status(200).json(userData);
+      console.log(req.session);
     });
   } catch (err) {
     console.log(err);
@@ -78,8 +75,5 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
-
-
-
 
 module.exports = router;

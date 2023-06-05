@@ -27,9 +27,14 @@ GitHub: escotoj
 
 
 ## TODO
+blog.handlebar not applying css
+POST route on homePage.js LN80, 500 error, empty object
+for the comments - need to make it so that they display.
+
+
 update blog route not working
 need to render a module that has title and body to update. 
-for the comments - need to make it so that they display.
+
 delete button only to display for blogger 
 comments to display in the single blog page. 
 

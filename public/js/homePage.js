@@ -85,30 +85,24 @@ $editBtn.addEventListener('click', async (event) => {
       const commentData = await response.json();
       console.log('COMMENT DATA LN:80', commentData)
 
-      //         // Add new comment to the page
-      //   // Create paragraph with comment text
       //   const text = document.createElement('p');
       //   text.textContent = commentData.text;
-      //   text.setAttribute('class', 'comment-text');
+      //   text.setAttribute('class', 'comment-p');
 
-      //   // Create paragraph 
-      //   const authorPara = document.createElement('p');
+      //   const commentor = document.createElement('p');
       //   const date = new Date(Date.parse(commentData.createdAt));
       //   const timestamp = date
-      //   // authorPara.textContent = `-${userData.username} on ${timestamp}`;
-      //   authorPara.setAttribute('class', 'italic');
+      //   commentor.textContent = `-${userData.username} on ${timestamp}`;
+      //   commentor.setAttribute('class', 'italic');
 
-      //   // Create containing div and add paragraphs to it
       //   const commentDiv = document.createElement('div');
-      //   commentDiv.appendChild($textPara);
-      //   commentDiv.appendChild(authorPara);
+      //   commentDiv.appendChild(text);
+      //   commentDiv.appendChild(commentor);
 
-      //   // Add new div to top of comments div
-      //   // commentsDiv.insertBefore(commentDiv, commentsDiv.firstChild);
-        
-      //   // Clear out the comment input field
-      //   comment.value = '';
-      // // location.href = '/dashboard';
+      //   
+      // comment.value = '';
+      // location.href = '/hompage';
+
     } catch (err) {
       console.log(err)
     }
