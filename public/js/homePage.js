@@ -1,11 +1,9 @@
 
 const $editBtn = document.getElementById('editBtn');
 const $deleteBtn = document.getElementById('deleteBtn');
-
 const $commentBtn = document.getElementById('commentBtn');
-
-
 const commentInput = document.getElementById('commentInput');
+const commentContainer = document.getElementById('commentContainer');
 
 // PUT BAD
 $editBtn.addEventListener('click', async (event) => {
@@ -58,12 +56,12 @@ $editBtn.addEventListener('click', async (event) => {
     const id = location.pathname.slice(11);
     const comment = commentInput.value;
     // TRYING TO GET USERDATA 
-    const user = await fetch(`/dashboard/${id}`);
+    const user = await fetch('/api/users/loggedinUser');
+    const userData = await user.json()
 
     // USED THIS TO HARD CODE AN ID
     // const userData = event.pointerId
 
-    const userData = user.loggedin
     console.log(comment)
     console.log('Blog ID ', id)
     console.log('USERDATA LN:65 --- ', userData)
@@ -85,23 +83,26 @@ $editBtn.addEventListener('click', async (event) => {
       const commentData = await response.json();
       console.log('COMMENT DATA LN:80', commentData)
 
-      //   const text = document.createElement('p');
-      //   text.textContent = commentData.text;
-      //   text.setAttribute('class', 'comment-p');
+        const text = document.createElement('p');
+      
+        text.textContent = commentData.text;
+        text.setAttribute('class', 'comment-p');
 
-      //   const commentor = document.createElement('p');
-      //   const date = new Date(Date.parse(commentData.createdAt));
-      //   const timestamp = date
-      //   commentor.textContent = `-${userData.username} on ${timestamp}`;
-      //   commentor.setAttribute('class', 'italic');
+        const commentor = document.createElement('p');
+        const date = new Date(Date.parse(commentData.createdAt));
+        const timestamp = date
+        console.log(timestamp)
+        commentor.textContent = `-${userData.username} on ${timestamp}`;
+        commentor.setAttribute('class', 'italic');
 
-      //   const commentDiv = document.createElement('div');
-      //   commentDiv.appendChild(text);
-      //   commentDiv.appendChild(commentor);
+        const commentDiv = document.createElement('div');
+        commentDiv.appendChild(text);
+        commentDiv.appendChild(commentor);
+        console.log(commentDiv)
 
-      //   
-      // comment.value = '';
-      // location.href = '/hompage';
+        commentContainer.insertBefore(commentDiv, commentContainer.firstChild);
+      comment.value = '';
+      // location.href = '/homepage';
 
     } catch (err) {
       console.log(err)

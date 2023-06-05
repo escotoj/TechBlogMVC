@@ -27,16 +27,15 @@ GitHub: escotoj
 
 
 ## TODO
-blog.handlebar not applying css
-POST route on homePage.js LN80, 500 error, empty object
-for the comments - need to make it so that they display.
+-- comments --
+1 blog.handlebar not applying css, date or user. 
+2 POST route on homePage.js LN80, 500 error, empty object
+3 for the comments - dynamic display in the homepage.js.
 
-
-update blog route not working
-need to render a module that has title and body to update. 
-
-delete button only to display for blogger 
-comments to display in the single blog page. 
+-- blog -- 
+4 edit blog - PUT route not working/no update function in the 
+5 public folder/ needs to render only for the author of the blog.
+6 delete button only to display for blogger 
 
 
 ## DONE
@@ -53,22 +52,18 @@ make blog vie on click, with comment option in a newpage.
 
 only one button works on the dashboard page that selects the data id of the blog. 
 
-
-need a update blog function
-need delete post function
-display the username of who made the post 
+comment
+not workign 
 
 blogPost
-WORKING for POST - need to add a delete, and PUT route for updating
+WORKING
+PUT route not wokring
 
 login
 WORKING
-need to add parameters for when only logged in members can blog
 
-signup -
-NOT WORKING, doing a double POST route.
+signup
+WORKING
 
 logout
 WORKING
-
-need to start the comments route 
