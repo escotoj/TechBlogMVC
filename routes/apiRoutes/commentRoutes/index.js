@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Comment } = require('../../../models');
 
-// POST to homePage.js - BAD
+// POST to homePage.js - Good
 router.post('/', async (req, res) => {
     console.log(req.body)
     try {
@@ -19,5 +19,6 @@ router.post('/', async (req, res) => {
         res.status(500).json({ err })
     }
 })
+
 
 module.exports = router;

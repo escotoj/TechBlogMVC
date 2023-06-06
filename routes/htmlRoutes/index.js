@@ -49,13 +49,19 @@ router.get("/dashboard/:id", async (req, res) => {
     ],
   });
   const username = req.session.user_name;
-  console.log("HOME", username);
+  const userId = req.session.userId
+  console.log("req.session.useriD ---", req.session.userId);
+  console.log(typeof userId);
   const blog = blogData.get({ plain: true });
-  console.log("HOME", blog);
+  console.log("BLOG.creator_id --", blog.creator_id);
+  const creator_id = blog.creator_id
+  console.log(typeof creator_id);
   res.render("blog", {
     blog,
     username,
     loggedIn: req.session.loggedIn,
+    userId,
+    creator_id
   });
 });
 

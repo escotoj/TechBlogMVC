@@ -11,20 +11,59 @@
 <strong>{{username}}</strong> 
 <i> - {{format_date blog.createdAt}}</i>
 </h5>
-<button id="editBtn" data-id="{{blog.id}}">Edit</button>
-<button id="deleteBtn" data-id="{{blog.id}}">Destroy</button>
+{{!-- <button id="editBtn" data-id="{{blog.id}}">Edit</button> --}}
+{{!-- <button id="deleteBtn" data-id="{{blog.id}}">Destroy</button> --}}
 
 <div id="commentContainer">
 </div>
 
 </div>
 {{#if loggedIn}}
+<div class="col-6">
 <form class="login_form">
   <label for="comment">Comment:</label>
   <input id='commentInput' type="text" name="newpostSub" placeholder="Say whats on your mind..."/>
   <button id='commentBtn'>Submit</button>
 </form>
+
+<form class="login_form">
+  <label for="comment">Edit:</label>
+  <input id='updateTitle' type="text" name="newpostSub" placeholder="title update..."/>
+  <input id='updateBody' type="text" name="newpostSub" placeholder="body update..."/>
+  <button id='updateBtn' data-id="{{blog.id}}">Update</button>
+  <button id="deleteBtn" data-id="{{blog.id}}">
+  Destroy
+</button>
+</form>
+</div>
+
+<div>
+
+
+
+</div>
 {{/if}}
 </div>
+
+
+{{!-- BOTH ARE SAME DATATYPE --}}
+<p>userId = {{userId}}</p>
+<p>CreatoriD = {{blog.creator_id}}</p>
+<p>{{creator_id}}</p>
+{{!-- DELEET BUTTON TO RENDER ONLY TO AUTHOR but not working --}}
+
+{{!-- {{#if (userId === creator_id) }}
+<div>
+
+<button id="deleteBtn" data-id="{{blog.id}}">
+  Destroy
+</button>
+
+</div>
+{{/if}} --}}
+
+
+</div>
+
 
 <script src="/js/homePage.js"></script>

@@ -28,13 +28,13 @@ GitHub: escotoj
 
 ## TODO
 -- blog -- 
-4 edit blog - PUT route not working/no update function in the 
-5 public folder/ needs to render only for the author of the blog.
-6 delete button only to display for blogger 
-
+6 delete button and edit form to only display for blogger 
+comments dissappeare after page reload. 
 
 ## DONE
 -- comments --
+4 edit blog - PUT route not working/no update function (if user = username)
+
 1 blog.handlebar not applying css, date or user. 
 2 POST route on homePage.js LN80, 500 error, empty object
 3 for the comments - dynamic display in the homepage.js.

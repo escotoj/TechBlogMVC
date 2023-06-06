@@ -21,7 +21,7 @@ router.post("/dashboard", async (req, res) => {
   }
 });
 
-// UPDATE ROUTE - BAD
+// UPDATE ROUTE - GOOD
 router.put("/dashboard/:id", async (req, res) => {
   try {
     await Blog.update(
@@ -50,5 +50,18 @@ router.delete("/dashboard/:id", async (req, res) => {
     res.status(500).json({ err });
   }
 });
+
+
+// GET ROUTE FOR ALL COMMENET
+// router.get('dashboard/:id', async (req, res) => {
+//   try {
+//     const blogId = req.params.id;
+//     const comments = await Comment.find({ blog_id: blogId }).populate('blogger_id');
+//     res.json(comments);
+//   } catch (err) {
+//     console.log('Error retrieving comments:', err);
+//     res.status(500).json({ error: 'Failed to retrieve comments' });
+//   }
+// });
 
 module.exports = router;
