@@ -59,21 +59,13 @@ $editBtn.addEventListener('click', async (event) => {
     const user = await fetch('/api/users/loggedinUser');
     const userData = await user.json()
 
-    // USED THIS TO HARD CODE AN ID
-    // const userData = event.pointerId
-
-    console.log(comment)
-    console.log('Blog ID ', id)
     console.log('USERDATA LN:65 --- ', userData)
-
-    console.log('event TEST --- ', event) 
     console.log('API ', user)
     if (!comment) {
       return alert(
         "No Comment Entered :("
       );
     }
-    
     try {
       const response = await fetch("/api/comment", {
         method: "POST",
@@ -84,14 +76,13 @@ $editBtn.addEventListener('click', async (event) => {
       console.log('COMMENT DATA LN:80', commentData)
 
         const text = document.createElement('p');
-      
         text.textContent = commentData.text;
         text.setAttribute('class', 'comment-p');
 
         const commentor = document.createElement('p');
         const date = new Date(Date.parse(commentData.createdAt));
         const timestamp = date
-        console.log(timestamp)
+        console.log('TIMESTAMP', timestamp)
         commentor.textContent = `-${userData.username} on ${timestamp}`;
         commentor.setAttribute('class', 'italic');
 

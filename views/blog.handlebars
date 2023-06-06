@@ -14,7 +14,10 @@
 <button id="editBtn" data-id="{{blog.id}}">Edit</button>
 <button id="deleteBtn" data-id="{{blog.id}}">Destroy</button>
 
+<div id="commentContainer">
+</div>
 
+</div>
 {{#if loggedIn}}
 <form class="login_form">
   <label for="comment">Comment:</label>
@@ -22,10 +25,6 @@
   <button id='commentBtn'>Submit</button>
 </form>
 {{/if}}
-<div id="commentContainer">
-</div>
-
-</div>
 </div>
 
 <script src="/js/homePage.js"></script>

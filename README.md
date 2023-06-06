@@ -27,11 +27,6 @@ GitHub: escotoj
 
 
 ## TODO
--- comments --
-1 blog.handlebar not applying css, date or user. 
-2 POST route on homePage.js LN80, 500 error, empty object
-3 for the comments - dynamic display in the homepage.js.
-
 -- blog -- 
 4 edit blog - PUT route not working/no update function in the 
 5 public folder/ needs to render only for the author of the blog.
@@ -39,17 +34,17 @@ GitHub: escotoj
 
 
 ## DONE
+-- comments --
+1 blog.handlebar not applying css, date or user. 
+2 POST route on homePage.js LN80, 500 error, empty object
+3 for the comments - dynamic display in the homepage.js.
 delete route is working
 comment.js has been added
-
 dashboard only to show upon login in, needs a session.
 need ot be abel to click on a specific blog and be able to 
-
 blogs are displayd with username 
-
 newpost route doesnt include session or display name of user.
 make blog vie on click, with comment option in a newpage.
-
 only one button works on the dashboard page that selects the data id of the blog. 
 
 comment
