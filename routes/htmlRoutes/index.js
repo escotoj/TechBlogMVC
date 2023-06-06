@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Blog } = require("../../models");
+const { User, Blog, Comment } = require("../../models");
 const utils = require("../../utils");
 const withAuth = require("../../utils/auth");
 
@@ -27,7 +27,8 @@ router.get("/homepage", async (req, res) => {
     ],
   });
   const username = req.session.user_name;
-  console.log("HOME", username);
+  // console.log("htmlRoutes.js ln:30 username --", username);
+  console.log("htmlRoutes.js ln:30 REQ.SESSION", req.session);
   const blogs = blogData.map((blog) => blog.get({ plain: true }));
   console.log("HOME", blogs);
   res.render("homepage", {
@@ -46,22 +47,35 @@ router.get("/dashboard/:id", async (req, res) => {
         model: User,
         attributes: ["id", "username"],
       },
+      {
+        model: Comment,
+        attributes: ['text'],
+        include: [
+          {
+            model: User
+            // grab user name through atributes
+          }
+        ]
+      },
     ],
   });
+  
   const username = req.session.user_name;
   const userId = req.session.userId
-  console.log("req.session.useriD ---", req.session.userId);
-  console.log(typeof userId);
+  // console.log("req.session.useriD ---", req.session.userId);
   const blog = blogData.get({ plain: true });
-  console.log("BLOG.creator_id --", blog.creator_id);
+  // console.log("BLOG.creator_id --", blog.creator_id);
   const creator_id = blog.creator_id
-  console.log(typeof creator_id);
+  // console.log("BLOG!!!!!", blog);
+  const userComments = blog.comments
+  console.log("userComments!!!!!", userComments[1]);
   res.render("blog", {
     blog,
     username,
     loggedIn: req.session.loggedIn,
     userId,
-    creator_id
+    creator_id,
+    userComments
   });
 });
 

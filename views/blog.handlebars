@@ -15,6 +15,7 @@
 {{!-- <button id="deleteBtn" data-id="{{blog.id}}">Destroy</button> --}}
 
 <div id="commentContainer">
+  {{!-- comment renders but after refresh it is at the bottom of page --}}
 </div>
 
 </div>
@@ -37,32 +38,38 @@
 </form>
 </div>
 
-<div>
-
-
-
+<div id="commentContainer2">
+  {{!-- run throuhg array with fro each to render userComments --}}
+{{#each userComments}}
+  <div>
+    <p>{{text}}</p>
+    <p>Posted by: {{user.username}}</p>
+    {{!-- DATE NOT WORKING PROPERLY --}}
+    <p>Posted on: {{format_date  user.createdAt}}</p>
+  </div>
+{{/each}}
 </div>
+{{!-- <div>
+</div> --}}
 {{/if}}
 </div>
 
 
 {{!-- BOTH ARE SAME DATATYPE --}}
 <p>userId = {{userId}}</p>
-<p>CreatoriD = {{blog.creator_id}}</p>
-<p>{{creator_id}}</p>
+<p>blog.creator_id = {{blog.creator_id}}</p>
+<p>CreatoriD {{creator_id}}</p>
 {{!-- DELEET BUTTON TO RENDER ONLY TO AUTHOR but not working --}}
 
 {{!-- {{#if (userId === creator_id) }}
 <div>
 
-<button id="deleteBtn" data-id="{{blog.id}}">
+<button id="deleteBtn" data-id={{blog.id}}>
   Destroy
 </button>
 
 </div>
 {{/if}} --}}
-
-
 </div>
 
 

@@ -177,7 +177,7 @@ button {
   padding: 2px;
   border: none;
   border-radius: 5px;
-  width: 5%;
+  width: 15%;
   cursor: pointer;
   margin-top:2%;
   font-weight: 700;
@@ -192,8 +192,8 @@ button {
   padding: 2px;
   border: none;
   border-radius: 5px;
-  height: 10%;
-  width: 10%;
+  /* height: 10%; */
+  width: 15%;
   cursor: pointer;
   margin-top:2%;
 }
@@ -260,6 +260,26 @@ button:hover {
 }
 
 #commentContainer p {
+ color: var(--color-hovernav);
+ font-size: small;
+ font-weight: 100;
+ font-style: italic;
+ 
+}
+
+#commentContainer2 {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: justify;
+  align-items: center;
+  /* width: 25%;
+  max-width: 900px; */
+  border-radius: 25px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  padding: 10px; 
+}
+
+#commentContainer2 p {
  color: var(--color-hovernav);
  font-size: small;
  font-weight: 100;
