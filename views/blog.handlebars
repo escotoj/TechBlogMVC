@@ -1,4 +1,6 @@
 
+
+
 <div class="container">
     <h5></h5> 
 <div>
@@ -71,6 +73,15 @@
 </div>
 {{/if}} --}}
 </div>
+
+<div>
+  {{#ifEquals userId blog.creator_id}}
+    <!-- Content to render when the condition is true --><p>  HELLO</p>
+  {{else}}
+    <!-- Content to render when the condition is false --> <P>NOT THE RIGHT USER</P>
+  {{/ifEquals}}
+</div>
+
 
 
 <script src="/js/homePage.js"></script>

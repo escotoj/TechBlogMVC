@@ -11,6 +11,12 @@ const helpers = require('./utils');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+Handlebars = require('handlebars');
+
+Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+});
+
 //configuaration setting
 const hbs = exphbs.create({
     helpers
