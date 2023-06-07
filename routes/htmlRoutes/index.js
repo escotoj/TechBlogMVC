@@ -16,6 +16,28 @@ router.get("/signup", (req, res) => {
   });
 });
 
+router.get("/", async (req, res) => {
+  const blogData = await Blog.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+    ],
+  });
+  const username = req.session.user_name;
+  // console.log("htmlRoutes.js ln:30 username --", username);
+  console.log("htmlRoutes.js ln:30 REQ.SESSION", req.session);
+  const blogs = blogData.map((blog) => blog.get({ plain: true }));
+  console.log("HOME", blogs);
+  res.render("homepage", {
+    blogs,
+    username,
+    loggedIn: req.session.loggedIn,
+    pathPrefix: ".",
+  });
+});
+
 // WHERE ALL BLOGS ARE VIEWED
 router.get("/homepage", async (req, res) => {
   const blogData = await Blog.findAll({
