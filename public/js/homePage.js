@@ -76,12 +76,22 @@ $commentBtn.addEventListener("click", async (event) => {
 
     const commentor = document.createElement("p");
     const date = new Date(Date.parse(commentData.createdAt));
-    const timestamp = date;
-    console.log("TIMESTAMP", timestamp);
-    commentor.textContent = `-${userData.username} on ${timestamp}`;
-    commentor.setAttribute("class", "italic");
+    // const timestamp = date;
+    const timestamp = new Date(); // Replace this with your actual timestamp
 
+const formattedTimestamp = timestamp.toLocaleString(); 
+    
+    // Date.fromJSDate(date).toFormat('ff');
+    // const timestamp = luxon.DateTime.
+    console.log("TIMESTAMP", timestamp);
+    const newComment = document.createElement("i");
+    newComment.textContent = "New Comment"
+    commentor.textContent = `Posted by: ${userData.username} on ${formattedTimestamp}`;
+    commentor.setAttribute("class", "italic");
+    // newComment.setAttribute("class", "commentThread");
     const commentDiv = document.createElement("div");
+    
+    commentDiv.appendChild(newComment);
     commentDiv.appendChild(text);
     commentDiv.appendChild(commentor);
     console.log(commentDiv);

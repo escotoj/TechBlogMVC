@@ -68,7 +68,7 @@ router.get("/dashboard/:id", async (req, res) => {
   const creator_id = blog.creator_id
   // console.log("BLOG!!!!!", blog);
   const userComments = blog.comments
-  console.log("userComments!!!!!", userComments[1]);
+  console.log("userComments!!!!!", userComments);
   res.render("blog", {
     blog,
     username,

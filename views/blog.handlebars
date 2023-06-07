@@ -21,15 +21,11 @@
 </div>
 
 </div>
-{{#if loggedIn}}
-<div class="col-6">
-<form class="login_form">
-  <label for="comment">Comment:</label>
-  <input id='commentInput' type="text" name="newpostSub" placeholder="Say whats on your mind..."/>
-  <button id='commentBtn'>Submit</button>
-</form>
 
-<form class="login_form">
+
+<div>
+  {{#ifEquals userId blog.creator_id}}
+  <form class="login_form">
   <label for="comment">Edit:</label>
   <input id='updateTitle' type="text" name="newpostSub" placeholder="title update..."/>
   <input id='updateBody' type="text" name="newpostSub" placeholder="body update..."/>
@@ -38,49 +34,67 @@
   Destroy
 </button>
 </form>
+{{/ifEquals}}
+
+</div>
+{{#if loggedIn}}
+<div class="col-6">
+<form class="login_form">
+  <label for="comment">Comment:</label>
+  <input id='commentInput' type="text" name="newpostSub" placeholder="Say whats on your mind..."/>
+  <button id='commentBtn'>Submit</button>
+</form>
+{{/if}}
+
+
+{{!-- <div>
+  {{#ifEquals userId blog.creator_id}}
+  <form class="login_form">
+  <label for="comment">Edit:</label>
+  <input id='updateTitle' type="text" name="newpostSub" placeholder="title update..."/>
+  <input id='updateBody' type="text" name="newpostSub" placeholder="body update..."/>
+  <button id='updateBtn' data-id="{{blog.id}}">Update</button>
+  <button id="deleteBtn" data-id="{{blog.id}}">
+  Destroy
+</button>
+</form>
+{{/ifEquals}}
+</div> --}}
+
+
+{{!-- for some reason deleting these buttons break the app so set display to none --}}
+  <button id='updateBtn' data-id={{blog.id}} style='display: none;' >Update</button>
+  <button id="deleteBtn" data-id={{blog.id}} style='display: none;'>
+  Destroy
+</button>
+</form>
 </div>
 
+
+<p class="commentThread">Thread:</p>
 <div id="commentContainer2">
+
   {{!-- run throuhg array with fro each to render userComments --}}
+
 {{#each userComments}}
-  <div>
+  <div id="commentDisplay">
     <p>{{text}}</p>
     <p>Posted by: {{user.username}}</p>
     {{!-- DATE NOT WORKING PROPERLY --}}
-    <p>Posted on: {{format_date  user.createdAt}}</p>
+    <p>Posted on: {{format_date user.createdAt}}</p>
   </div>
 {{/each}}
 </div>
 {{!-- <div>
 </div> --}}
-{{/if}}
+
+</div>
+
+
+
 </div>
 
 
-{{!-- BOTH ARE SAME DATATYPE --}}
-<p>userId = {{userId}}</p>
-<p>blog.creator_id = {{blog.creator_id}}</p>
-<p>CreatoriD {{creator_id}}</p>
-{{!-- DELEET BUTTON TO RENDER ONLY TO AUTHOR but not working --}}
-
-{{!-- {{#if (userId === creator_id) }}
-<div>
-
-<button id="deleteBtn" data-id={{blog.id}}>
-  Destroy
-</button>
-
-</div>
-{{/if}} --}}
-</div>
-
-<div>
-  {{#ifEquals userId blog.creator_id}}
-    <!-- Content to render when the condition is true --><p>  HELLO</p>
-  {{else}}
-    <!-- Content to render when the condition is false --> <P>NOT THE RIGHT USER</P>
-  {{/ifEquals}}
-</div>
 
 
 

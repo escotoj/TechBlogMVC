@@ -21,11 +21,17 @@ router.post("/signup", async (req, res) => {
 
     req.session.save(() => {
       // req.session.user_id = userData.id;
-      req.session.user = userData;
+// NEW ---------
+      req.session.user_name = req.body.username;
+      req.session.userId = userData.id;
       req.session.loggedIn = true;
-      res.json({ message: "You are signed up!" });
-      // console.log(userData.id)
-      console.log(userData);
+      console.log(req.session);
+      res.status(200).json(userData);
+// OLD _______
+      // req.session.user = userData;
+      // req.session.loggedIn = true;
+      // res.json({ message: "You are signed up!" });
+      // console.log(userData);
     });
   } catch (err) {
     res.status(500).json({ err });

@@ -11,6 +11,8 @@ const helpers = require('./utils');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+
+// importing handlebars to add a helper for (===) 
 Handlebars = require('handlebars');
 
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {

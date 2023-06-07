@@ -33,7 +33,7 @@ Blog.init(
     sequelize,
     freezeTableName: true,
     modelName: 'blog',
-    // timestamps: false,
+    timestamps: true,
   }
 );
 

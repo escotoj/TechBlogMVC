@@ -14,7 +14,8 @@ registerBtn.addEventListener("click", async (event) => {
     });
     if (response.ok) {
       console.log('GOOD', response);
-      // document.location.replace('/');
+      alert(`${username} was successfully registered, let's post our first Blog`)
+      document.location.replace('/dashboard');
     } else {
       alert("Signup failed");
       console.log('BAD',response)

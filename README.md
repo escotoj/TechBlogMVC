@@ -28,11 +28,13 @@ GitHub: escotoj
 
 ## TODO
 -- blog -- 
-6 delete button and edit form to only display for blogger 
-comments dissappeare after page reload. 
+6 delete button and edit form to only display for blogger - working now need to add the button and edit and we good to add to heroku. 
+
+
 
 ## DONE
 -- comments --
+comments dissappeare after page reload. - fixed
 4 edit blog - PUT route not working/no update function (if user = username)
 
 1 blog.handlebar not applying css, date or user. 
