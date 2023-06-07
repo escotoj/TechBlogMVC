@@ -88,7 +88,7 @@ router.get("/dashboard/:id", async (req, res) => {
   const blog = blogData.get({ plain: true });
   // console.log("BLOG.creator_id --", blog.creator_id);
   const creator_id = blog.creator_id
-  // console.log("BLOG!!!!!", blog);
+  console.log("BLOG!!!!!", blog);
   const userComments = blog.comments
   console.log("userComments!!!!!", userComments);
   res.render("blog", {

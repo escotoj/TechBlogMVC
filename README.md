@@ -1,66 +1,30 @@
-# TechBlog FullStack App
+# TechBlogSpot (Full-Stack Application)
 
 ## Description
-Fullstack blog application that utilizes bootstrap on the frontend and SQL database on the backend.
-You have the ability to register for an account, and be able to login/out of profile. As a user you can post new blogs, and view others blogs and comment on them. 
+
+TechBlogSpot is a Fullstack blog application that utilizes Handlebars with Bootstrap on the frontend and Node,  Sequelize ORM, and Express for the MySQL database on the backend.
+You have the ability to register for an account, and be able to login/out of profile. As a user you area ble to can post new blogs, and view others blogs. Deleting and updating comments can only be done by the author of said post. You can also comment on each users blogs once you are registered.
+
+- [Deployed on Heroku](https://techblogspot-je.herokuapp.com/): Feel free to navigate the application and test it out.
 
 ## Table of Contents
+
 - [License](#License)
 - [Future](#Future)
 - [Credits](#Credits)
 - [Contact](#Contact)
 
 ## License
+
 License: MIT License
 
-
-
 ## Credits
-Jose Escoto, Full Stack Development Student, University of Berkeley.
-Juno Nguyen, Tutor. 
-MVC class recordings. 
+
+Jose Escoto, Full Stack Development Student, University of Berkeley. MVC class recordings, FSF Tutor. 
 
 ## Contact
+
 For more questions please contact below:
 Email: j.escoto@gmail.com
-GitHub: escotoj
+GitHub: [escotoj](https://github.com/escotoj)
 
-
-## TODO
--- blog -- 
-6 delete button and edit form to only display for blogger - working now need to add the button and edit and we good to add to heroku. 
-
-
-
-## DONE
--- comments --
-comments dissappeare after page reload. - fixed
-4 edit blog - PUT route not working/no update function (if user = username)
-
-1 blog.handlebar not applying css, date or user. 
-2 POST route on homePage.js LN80, 500 error, empty object
-3 for the comments - dynamic display in the homepage.js.
-delete route is working
-comment.js has been added
-dashboard only to show upon login in, needs a session.
-need ot be abel to click on a specific blog and be able to 
-blogs are displayd with username 
-newpost route doesnt include session or display name of user.
-make blog vie on click, with comment option in a newpage.
-only one button works on the dashboard page that selects the data id of the blog. 
-
-comment
-not workign 
-
-blogPost
-WORKING
-PUT route not wokring
-
-login
-WORKING
-
-signup
-WORKING
-
-logout
-WORKING

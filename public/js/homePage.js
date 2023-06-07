@@ -76,13 +76,14 @@ $commentBtn.addEventListener("click", async (event) => {
 
     const commentor = document.createElement("p");
     const date = new Date(Date.parse(commentData.createdAt));
-    // const timestamp = date;
-    const timestamp = new Date(); // Replace this with your actual timestamp
 
-const formattedTimestamp = timestamp.toLocaleString(); 
+
+
+// Date
+const timestamp = new Date(); 
+const formattedTimestamp = timestamp.toLocaleString("en-US"); 
     
-    // Date.fromJSDate(date).toFormat('ff');
-    // const timestamp = luxon.DateTime.
+
     console.log("TIMESTAMP", timestamp);
     const newComment = document.createElement("i");
     newComment.textContent = "New Comment"
