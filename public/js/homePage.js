@@ -81,7 +81,7 @@ $commentBtn.addEventListener("click", async (event) => {
 
 // Date
 const timestamp = new Date(); 
-const formattedTimestamp = timestamp.toLocaleString("en-US"); 
+const formattedTimestamp = timestamp.toLocaleString(); 
     
 
     console.log("TIMESTAMP", timestamp);
