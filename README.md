@@ -14,6 +14,10 @@ You have the ability to register for an account, and be able to login/out of pro
 - [Credits](#Credits)
 - [Contact](#Contact)
 
+![TechBlogSpot](public/images/techblogspot.png)
+![](public/images/techblogspot2.png)
+![](public/images/techblogspot3.png)
+
 ## License
 
 License: MIT License
