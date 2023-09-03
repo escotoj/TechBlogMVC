@@ -52,16 +52,5 @@ router.delete("/dashboard/:id", async (req, res) => {
 });
 
 
-// GET ROUTE FOR ALL COMMENET
-// router.get('dashboard/:id', async (req, res) => {
-//   try {
-//     const blogId = req.params.id;
-//     const comments = await Comment.find({ blog_id: blogId }).populate('blogger_id');
-//     res.json(comments);
-//   } catch (err) {
-//     console.log('Error retrieving comments:', err);
-//     res.status(500).json({ error: 'Failed to retrieve comments' });
-//   }
-// });
 
 module.exports = router;

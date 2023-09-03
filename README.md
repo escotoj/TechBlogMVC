@@ -29,6 +29,6 @@ Jose Escoto, Full Stack Development Student, University of Berkeley. MVC class r
 ## Contact
 
 For more questions please contact below:
-Email: j.escoto@gmail.com
+Email: j.escoto14@gmail.com
 GitHub: [escotoj](https://github.com/escotoj)
 

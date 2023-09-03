@@ -25,7 +25,6 @@ $updateBtn.addEventListener("click", async (event) => {
     const data = await response.json();
     console.log(data);
     alert("blog updated with Success! :)");
-    // reoads page to see update
     location.href = location.href;
   } catch (err) {
     console.log(err);
@@ -89,7 +88,6 @@ const formattedTimestamp = timestamp.toLocaleString();
     newComment.textContent = "New Comment"
     commentor.textContent = `Posted by: ${userData.username} on ${formattedTimestamp}`;
     commentor.setAttribute("class", "italic");
-    // newComment.setAttribute("class", "commentThread");
     const commentDiv = document.createElement("div");
     
     commentDiv.appendChild(newComment);

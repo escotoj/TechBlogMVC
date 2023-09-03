@@ -10,9 +10,6 @@ $postBtn.addEventListener('click', async (event) => {
       content: $newpostBod.value,
     }
     console.log(newBlog);
-    // if (data.value.trim() === '') {
-    //   return alert('You must enter a something');
-    // }
   
     try {
       const response = await fetch('/api/blog/dashboard', {

@@ -26,7 +26,6 @@ router.get("/", async (req, res) => {
     ],
   });
   const username = req.session.user_name;
-  // console.log("htmlRoutes.js ln:30 username --", username);
   console.log("htmlRoutes.js ln:30 REQ.SESSION", req.session);
   const blogs = blogData.map((blog) => blog.get({ plain: true }));
   console.log("HOME", blogs);
@@ -84,9 +83,7 @@ router.get("/dashboard/:id", async (req, res) => {
   
   const username = req.session.user_name;
   const userId = req.session.userId
-  // console.log("req.session.useriD ---", req.session.userId);
   const blog = blogData.get({ plain: true });
-  // console.log("BLOG.creator_id --", blog.creator_id);
   const creator_id = blog.creator_id
   console.log("BLOG!!!!!", blog);
   const userComments = blog.comments

@@ -13,11 +13,10 @@
 <strong>{{blog.user.username}}</strong> 
 <i> - {{format_date blog.createdAt}}</i>
 </h5>
-{{!-- <button id="editBtn" data-id="{{blog.id}}">Edit</button> --}}
-{{!-- <button id="deleteBtn" data-id="{{blog.id}}">Destroy</button> --}}
+
 
 <div id="commentContainer">
-  {{!-- comment renders but after refresh it is at the bottom of page --}}
+
 </div>
 
 </div>
@@ -47,22 +46,7 @@
 {{/if}}
 
 
-{{!-- <div>
-  {{#ifEquals userId blog.creator_id}}
-  <form class="login_form">
-  <label for="comment">Edit:</label>
-  <input id='updateTitle' type="text" name="newpostSub" placeholder="title update..."/>
-  <input id='updateBody' type="text" name="newpostSub" placeholder="body update..."/>
-  <button id='updateBtn' data-id="{{blog.id}}">Update</button>
-  <button id="deleteBtn" data-id="{{blog.id}}">
-  Destroy
-</button>
-</form>
-{{/ifEquals}}
-</div> --}}
 
-
-{{!-- for some reason deleting these buttons break the app so set display to none --}}
   <button id='updateBtn' data-id={{blog.id}} style='display: none;' >Update</button>
   <button id="deleteBtn" data-id={{blog.id}} style='display: none;'>
   Destroy
@@ -74,19 +58,16 @@
 <p class="commentThread">Thread:</p>
 <div id="commentContainer2">
 
-  {{!-- run throuhg array with fro each to render userComments --}}
 
 {{#each userComments}}
   <div id="commentDisplay">
     <p>{{text}}</p>
     <p>Posted by: {{user.username}}</p>
-    {{!-- DATE NOT WORKING PROPERLY --}}
     <p>Posted on: {{format_date user.createdAt}}</p>
   </div>
 {{/each}}
 </div>
-{{!-- <div>
-</div> --}}
+
 
 </div>
 

@@ -5,10 +5,6 @@ const session = require('express-session');
 const routes = require('./routes');
 const helpers = require('./utils');
 
-// FAVICON =================================
-// var favicon = require('serve-favicon');
-// var path = require('path')
-
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
@@ -47,16 +43,11 @@ const sess = {
 
 app.use(session(sess));
 
-// app.use(express.favicon('public/images/favicon7.ico'));
-// app.use(favicon('public/images/favicon7.ico'));
-// app.use('/favicon7.ico', express.favicon('public/images/favicon7.ico'));
-// app.use(favicon(path.join(__dirname, 'public', 'images/favicon7.ico')))
 
 
 // template enginee - config of how handle bars should be setup
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars')
-// MiddleWare - Express
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
